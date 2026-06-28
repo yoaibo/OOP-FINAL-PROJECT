@@ -1,0 +1,17 @@
+public class Inspector extends User {
+
+    public Inspector(int id, String name) {
+        super(id, name);
+    }
+
+    @Override
+    public void displayRole() {
+        System.out.println("Inspector: " + getName());
+    }
+
+    public void logDamage(Property p, String issue) {
+        p.setIsDamaged(true);
+        System.out.println("Inspector " + getName() + " flagged issue on property " + p.getId() + ": " + issue);
+        p.saveLog("Damage issue '" + issue + "' logged on property " + p.getId() + " by Inspector " + getName());
+    }
+}
